@@ -266,8 +266,7 @@ class SimpleRobotControl:
     def angle_diff(self, a, b):
         """Returns the smallest distance between 2 angles
         """
-        # TODO
-        d = 0
+        d = math.atan2(math.cos(a-b), math.sin(a-b))
         return d
 
 
