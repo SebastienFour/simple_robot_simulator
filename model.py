@@ -50,9 +50,9 @@ class Model(object):
         Returns:
             float -- Speed of motor1 (m/s), speech of motor2 (m/s)
         """
-        # TODO
-        m1_speed = 0
-        m2_speed = 0
+        
+        m1_speed = linear_speed + (self.l*rotational_speed)/2
+        m2_speed = linear_speed - (self.l*rotational_speed)/2
         return m1_speed, m2_speed
 
     def dk(self): #mise à jour de la position
@@ -66,7 +66,6 @@ class Model(object):
         Returns:
             float -- linear speed (m/s), rotational speed (rad/s)
         """
-        
         linear_speed = (self.m1.speed + self.m2.speed)/2.0
         rotation_speed = (self.m1.speed - self.m2.speed)/self.l
         
