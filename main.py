@@ -256,7 +256,7 @@ class SimpleRobotControl:
         )
 
         # TODO
-        local_speed = 0
+        local_speed = distance
         local_turn = 0
 
         m1_speed, m2_speed = m.ik(local_speed, local_turn)
@@ -266,7 +266,7 @@ class SimpleRobotControl:
     def angle_diff(self, a, b):
         """Returns the smallest distance between 2 angles
         """
-        d = math.atan2(math.cos(a-b), math.sin(a-b))
+        d = math.atan2(math.cos(a-b), math.sin(a-b))    #angle calculation
         return d
 
 
