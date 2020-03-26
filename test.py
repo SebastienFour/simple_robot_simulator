@@ -35,20 +35,38 @@ def test_dk():
     linear_speed, rotational_speed = m.dk()
     print("\nlinear_speed={}\nrotational_speed={}\n".format(linear_speed, rotational_speed))
     
+    m.m1.speed = 0
+                    #resetting speeds
+    m.m2.speed = 0
 
 test_dk()
 
 
 def test_ik():
     
-    if linear_speed == type(float) and linear_speed >= 0 :
-        print("ok !")
+    print("\n### Test of ik function ###\n")
     
-    else :
-        print("fail !")
-        
-    if rotational_speed == type(float) and linear_speed >= 0 :
-        print("ok !")
+    print("\nDefault model: {}\n".format(m))
     
-    else :
-        print("fail !")
+    print("#### Setting linear speed ####\n")
+    linear_speed = 0.1
+    rotational_speed = 0
+    print("## Current settings ##\nmodel:  {}".format(m))
+    m1_speed, m2_speed = m.dk()
+    print("\nm1_speed={}\nm2_speed={}\n".format(m1_speed, m2_speed))
+    
+    print("#### Setting rotational speed ####\n")
+    linear_speed = 0
+    rotational_speed = 0.1
+    print("## Current settings ##\nmodel:  {}".format(m))
+    m1_speed, m2_speed = m.dk()
+    print("\nm1_speed={}\nm2_speed={}\n".format(m1_speed, m2_speed))
+    
+    print("#### Setting both linear and rotationnal speed ####\n")
+    linear_speed = 0.1
+    rotational_speed = 0.1
+    print("## Current settings ##\nmodel:  {}".format(m))
+    m1_speed, m2_speed = m.dk()
+    print("\nm1_speed={}\nm2_speed={}\n".format(m1_speed, m2_speed))
+    
+test_ik()
