@@ -13,6 +13,10 @@ def test_dk():
     print("## Current settings ##\nmodel:  {}".format(m))
     linear_speed, rotational_speed = m.dk()
     print("\nlinear_speed={}\nrotational_speed={}\n".format(linear_speed, rotational_speed))
+    if m.m1.speed == 0.1 :
+        print("Test is OK !\n")
+    else:
+        print("Test failed !\n")
 
     print("#### Setting same speed for both motors ####\n")
     m.m1.speed = 0.1
@@ -20,13 +24,21 @@ def test_dk():
     print("## Current settings ##\nmodel:  {}".format(m))
     linear_speed, rotational_speed = m.dk()
     print("\nlinear_speed={}\nrotational_speed={}\n".format(linear_speed, rotational_speed))
-
+    if m.m1.speed == 0.1 and m.m2.speed == 0.2:
+        print("Test is OK !\n")
+    else:
+        print("Test failed !\n")
+    
     print("#### Setting opposed speed for both motors ####\n")
     m.m1.speed = 0.1
     m.m2.speed = -0.1
     print("## Current settings ##\nmodel:  {}".format(m))
     linear_speed, rotational_speed = m.dk()
     print("\nlinear_speed={}\nrotational_speed={}\n".format(linear_speed, rotational_speed))
+    if m.m1.speed == 0.1 and m.m2.speed == -0.1 :
+        print("Test is OK !\n")
+    else:
+        print("Test failed !\n")
     
     print("#### Setting speed of motor2 = 2 * motor1 ####\n")
     m.m1.speed = 0.1
@@ -34,6 +46,11 @@ def test_dk():
     print("## Current settings ##\nmodel:  {}".format(m))
     linear_speed, rotational_speed = m.dk()
     print("\nlinear_speed={}\nrotational_speed={}\n".format(linear_speed, rotational_speed))
+    if m.m1.speed == 0.1 and m.m2.speed == 0.2 :
+        print("Test is OK !\n")
+    else:
+        print("Test failed !\n")
+    
     
     m.m1.speed = 0
                     #resetting speeds
